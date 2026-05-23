@@ -54,6 +54,7 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 1px;
+    flex-shrink: 0;
 }
 
 .highlight {
@@ -62,14 +63,22 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.controls-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 600px;
+}
+
 .input-container {
     display: flex;
     gap: 10px;
-    flex-grow: 1;
-    max-width: 500px;
+    flex: 1 1 280px;
+    min-width: 200px;
 }
 
-input {
+.input-container input {
     flex-grow: 1;
     background: var(--bg-main);
     border: 1px solid var(--border-color);
@@ -81,11 +90,11 @@ input {
     transition: border-color 0.3s;
 }
 
-input:focus {
+.input-container input:focus {
     border-color: var(--accent-color);
 }
 
-button {
+.input-container button {
     background: var(--accent-gradient);
     border: none;
     color: white;
@@ -97,11 +106,53 @@ button {
     align-items: center;
     gap: 8px;
     transition: transform 0.2s, opacity 0.2s;
+    flex-shrink: 0;
 }
 
-button:hover {
+.input-container button:hover {
     opacity: 0.9;
     transform: translateY(-1px);
+}
+
+.select-container {
+    display: flex;
+    gap: 8px;
+    flex: 1 1 100%;
+    min-width: 200px;
+}
+
+.select-container select {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.select-container select:focus {
+    border-color: var(--accent-color);
+}
+
+.select-container select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.select-container select option {
+    background: var(--bg-card);
+    color: var(--text-primary);
 }
 
 /* 📊 ARQUITECTURA EN REJILLA (CSS GRID PARA ESCRITORIO) */
@@ -229,15 +280,45 @@ button:hover {
     .search-bar {
         flex-direction: column;
         align-items: stretch;
-        padding: 20px;
+        padding: 12px;
+        gap: 10px;
     }
 
     .brand {
         text-align: center;
+        font-size: 1rem;
+    }
+
+    .controls-wrapper {
+        gap: 4px;
+        flex: 1 1 247px;
     }
 
     .input-container {
-        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .input-container input {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .input-container button {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+
+    .select-container {
+        flex-direction: column;
+    }
+
+    .select-container select {
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        background-size: 10px;
+        background-position: right 8px center;
+        padding-right: 24px;
     }
 
     /* Rompemos el Grid de escritorio a una sola columna vertical fluida */
@@ -245,8 +326,29 @@ button:hover {
         grid-template-columns: 1fr;
     }
 
-    /* La tarjeta del gráfico deja de estirarse horizontalmente */
+    .card {
+        padding: 16px;
+    }
+
+    .current-weather h2 {
+        font-size: 1.2rem;
+    }
+
+    .temp-container {
+        font-size: 2.5rem;
+    }
+
+    .weather-details h3, .analytics-chart h3 {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+
+    .detail-item {
+        padding: 10px;
+    }
+
     .analytics-chart {
         grid-column: span 1;
+        min-height: 200px;
     }
 }

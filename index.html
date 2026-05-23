@@ -14,9 +14,25 @@
         
         <header class="search-bar">
             <div class="brand">🌤️ <span class="highlight">METEO</span>ANALYTICS</div>
-            <div class="input-container">
-                <input type="text" id="inputCiudad" placeholder="Busca cualquier ciudad del mundo...">
-                <button id="btnBuscar"><i class="ri-search-line"></i> Buscar</button>
+            <div class="controls-wrapper">
+                <div class="input-container">
+                    <input type="text" id="inputCiudad" placeholder="Busca cualquier ciudad del mundo...">
+                    <button id="btnBuscar"><i class="ri-search-line"></i> Buscar</button>
+                </div>
+                <div class="select-container">
+                    <select id="selectPais">
+                        <option value="">🌍 País</option>
+                    </select>
+                    <select id="selectEstado" disabled>
+                        <option value="">🗺️ Departamento/Estado</option>
+                    </select>
+                    <select id="selectCiudad" disabled>
+                        <option value="">📍 Ciudad/Localidad</option>
+                    </select>
+                    <select id="selectDistrito" disabled>
+                        <option value="">📍 Distrito</option>
+                    </select>
+                </div>
             </div>
         </header>
 
