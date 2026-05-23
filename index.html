@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Analytics Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        
+        <header class="search-bar">
+            <div class="brand">🌤️ <span class="highlight">METEO</span>ANALYTICS</div>
+            <div class="input-container">
+                <input type="text" id="inputCiudad" placeholder="Busca cualquier ciudad del mundo...">
+                <button id="btnBuscar"><i class="ri-search-line"></i> Buscar</button>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            
+            <section class="card current-weather">
+                <h2 id="nombreCiudad">Detectando ubicación...</h2>
+                <div class="weather-main">
+                    <img id="iconoClima" src="" alt="Estado del clima" class="hidden">
+                    <div class="temp-container">
+                        <span id="txtTemperatura">--</span><span class="unit">°C</span>
+                    </div>
+                </div>
+                <p id="txtDescripcion" class="description">Espere un momento por favor</p>
+            </section>
+
+            <section class="card weather-details">
+                <h3>Detalles de la Atmósfera</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <i class="ri-droplet-line"></i>
+                        <div>
+                            <span>Humedad</span>
+                            <strong id="txtHumedad">--%</strong>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="ri-windy-line"></i>
+                        <div>
+                            <span>Viento</span>
+                            <strong id="txtViento">-- km/h</strong>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="ri-compass-3-line"></i>
+                        <div>
+                            <span>Presión</span>
+                            <strong id="txtPresion">-- hPa</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card analytics-chart">
+                <h3><i class="ri-bar-chart-line"></i> Tendencia de Temperatura (Próximas Horas)</h3>
+                <div class="chart-container">
+                    <canvas id="graficaTemperatura"></canvas>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
